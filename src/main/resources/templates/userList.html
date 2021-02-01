@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>User List</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+    </head>
+    <body>
+    <th:block th:include="@{/_header}"></th:block>
+    <th:block th:include="/_menu"></th:block>
+    <center>
+        <div class="">User List</div>
+        <div>Total User Count: <span th:utext="${paginationResult.totalRecords}"></span></div>
+        <table border="1" style="width:100%">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>User Email</th>
+                <th>User Role</th>
+                <th colspan="2">Action</th>
+            </tr>
+            <tr th:each="userInfo : ${paginationResult.list}">
+                <td th:utext="${userInfo.firstName}"></td>
+                <td th:utext="${userInfo.lastName}"></td>
+                <td th:utext="${userInfo.userEmail}"></td>
+                <td th:utext="${userInfo.userRole}"></td>
+                <td><a style="color:red;" th:href="@{|/admin/user?userName=${userInfo.userName}|}">Edit User</a></td>
+                <td><a style="color:red;" th:href="@{|/admin/userDelete?userName=${userInfo.userName}|}">Delete User</a></td>
+            </tr>
+        </table>
+        <div class="page-navigator" th:if="${paginationResult.totalPages > 1}" >
+            <th:block th:each="page: ${paginationResult.navigationPages}">
+                <a th:if="${page != -1}" class="nav-item"
+                   th:href="@{|/admin/userList?page=${page}|}" th:utext="${page}"></a>
+
+                <span th:if="${page == -1}" class="nav-item"> ... </span>
+            </th:block>
+        </div>
+    </center>
+    <th:block th:include="/_footer"></th:block>
+
+</body>
+</html>

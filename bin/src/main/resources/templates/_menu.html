@@ -1,0 +1,47 @@
+<div class="menu-container"
+     xmlns:th="http://www.thymeleaf.org"
+     xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
+    <a style="text-decoration: none; color: black" th:href="@{/}">Home</a>
+    |
+    <!--    <a th:href="@{/productList}">
+            Product List
+        </a>-->
+
+    <label for="category"> <b>Category</b> </label>
+    <!--<select id="dropdown-mobile" name="dropdown-mobile" th:field="*{prodCats}" onchange="sayhello()" style="text-decoration: none; color: black">-->
+    <select id="dropdown-mobile" name="dropdown-mobile" onchange='location = this.value;' style="text-decoration: none; color: black">
+        <option value="http://localhost:8080/productList?prodCat=-1" selected th:text="Select"></option>
+        <option value="http://localhost:8080/productList?prodCat=0" selected th:text="All"></option>
+        <option value="http://localhost:8080/productList?prodCat=1" th:text="Drone Parts"></option>
+        <option value="http://localhost:8080/productList?prodCat=2" th:text="Sensors"></option>
+        <option value="http://localhost:8080/productList?prodCat=3" th:text="Electronic Component"></option>
+        <option value="http://localhost:8080/productList?prodCat=4" th:text="Instuments and Tools"></option>
+        <option value="http://localhost:8080/productList?prodCat=5" th:text="Wires & Cable"></option>
+        <option value="http://localhost:8080/productList?prodCat=6" th:text="Motor Drivers & Actuator"></option>
+        <!--<option th:each="prodCat : ${prodCats}" th:value="${prodCat.ID}" th:text="${prodCat.name}"></option>-->
+    </select>
+
+    |
+    <a style="text-decoration: none; color: black" th:href="@{/shoppingCart}">
+        My Cart
+    </a>
+    |
+    <th:block sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_CUSTOMER')">
+        <a style="text-decoration: none; color: black" th:href="@{/admin/orderList}">
+            Order List
+        </a>
+        |
+    </th:block>
+    <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+        <a style="text-decoration: none; color: black" th:href="@{/admin/product}">
+            Create Product
+        </a>
+        |
+    </th:block>
+    <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+        <a style="text-decoration: none; color: black" th:href="@{/admin/user}">
+            Create User
+        </a>
+        |
+    </th:block>
+</div>

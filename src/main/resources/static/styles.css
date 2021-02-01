@@ -1,0 +1,202 @@
+html {
+    background: white;
+}
+h3 {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
+    margin: 0px auto;
+    /* background: #F8F8F8; */
+    padding:0px;
+    text-align:center;
+    margin-bottom: -50px;
+}
+
+.page-title  {
+    font-size:120%;
+    text-align: left;
+    margin:10px 0px;
+}
+.header-container {
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    background: #2196F3;
+    color: white;
+}
+.header-container .header-bar  {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+}
+.header-container .header-bar  a  {
+    color: white;
+    font-size: bold;
+}
+
+.footer-container {
+    text-align: center;
+    position: relative;
+    margin-top: 10px;
+    padding: 5px 0px 0px 0px;
+    border-top: 1px solid #ccc;
+    height: 50px;
+    position: fixed;
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    width: 100%;
+    /* Height of the footer*/  
+    height: 40px;
+    background: grey;
+}
+.menu-container {
+    padding: 2px;
+    background: #d1d1d1;
+    text-align: right;
+    margin: 2px 3px;
+}
+.menu-container a {
+    margin: 5px 5px 5px 10px;
+    color: #004d99;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.site-name {
+    font-size:200%;
+    margin:10px 10px 10px 0px;
+    padding: 5px;
+}
+
+.container  {
+    margin: 5px 0px;
+}
+
+.demo-container, .login-container, .account-container .product-container{
+    padding: 10px;
+    margin-top: auto;
+    border: 1px solid #ccc;
+    margin:20px 0px;
+    align-content: center;
+    flex-wrap: wrap;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.customer-info-container {
+    text-align: left;
+    border: 1px solid #ccc;
+    padding: 0px 5px;
+}
+.product-preview-container {
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 250px;
+    margin: 10px ;
+    display: table-cell;
+    text-align:center;
+
+}
+
+.product-preview-container input {
+    width: 50px;
+}
+
+
+.product-image {
+    width: 120px;
+    height: 80px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 5px;
+    margin:5px;
+}
+
+
+.navi-item {
+    margin: 5px 5px 5px 20px;
+}
+
+.button-update-sc {
+    color: red;
+    margin: 5px 5px 5px 20px;
+}
+
+.button-send-sc {
+    color: red;
+    margin: 5px 5px 5px 20px;
+}
+
+.error-message {
+    font-size: 90%;
+    color: red;
+    font-style: italic;
+}
+
+.price {
+    color: blue;
+    font-weight: bold;
+}
+
+.subtotal {
+    color: red;
+    font-weight: bold;
+}
+
+.total {
+    color: red;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+table td {
+    padding: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer {
+  margin-top: 245px;
+  /* padding: 5px; */
+  text-align: center;
+  background: #004aad;
+  color: white;
+  height: 105px;
+  position: absolute;
+  width: 100%;
+  /* bottom: 0; */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  /* background-color: #2196F3; */
+  padding: 10px;
+}
+
+.grid-item {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  /* border: 1px solid rgba(0, 0, 0, 0.8); */
+  padding: 2px;
+  font-size: 18px;
+  text-align: initial;
+  color: #f1f1f1;
+}
+
+.productDetails-image{
+	width:30%;
+}
+
+.pro-list{
+	margin-top: 50px;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <head>
+        <meta charset="UTF-8">
+        <title>Product Details</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+    </head>
+    <body>
+    <th:block th:include="@{/_header}"></th:block>
+    <th:block th:include="/_menu"></th:block>
+    <center>
+        <div class="">Product Details</div>
+
+        <div class="productDetails-preview-container" th:each="prodInfo : ${paginationProducts.list}">
+            <table>
+                <tr>
+                    <td rowspan="6"><img class="productDetails-image"
+                                         th:src="@{|/productImage?code=${prodInfo.code}|}" /></td>
+                    <td>
+                        Code: 
+                        <!--                        <ul>
+                                                    <li>Code: </li>
+                                                    <li>Name: </li>
+                                                    <li>Price: </li>
+                                                    <li>Description: </li>
+                                                    <li>Specification: </li>
+                                                </ul>-->
+                    </td>
+                    <td>
+                        <span th:utext="${prodInfo.code}"></span>
+                        <!--                        <ul>
+                                                                        <li><img class="product-image"
+                                                                                 th:src="@{|/productImage?code=${prodInfo.code}|}" /></li>
+                                                    <li><span th:utext="${prodInfo.code}"></span></li>
+                                                    <li><span th:utext="${prodInfo.name}"></span></li>
+                                                    <li><span th:utext="${#numbers.formatDecimal(prodInfo.price,3,2,'COMMA')}"></span></li>
+                                                    <li><p th:utext="${prodInfo.description}"></p></li>
+                                                    <li><p th:utext="${prodInfo.specification}"></p></li>
+                                                    <li>
+                                                        <a th:href="@{|/buyProduct?code=${prodInfo.code}|}">Buy Now</a>
+                                                    </li>
+                                                     For ADMIN edit Product 
+                                                    <th:block sec:authorize="hasAuthority('ROLE_ADMIN')">
+                                                        <li>
+                                                            <a style="color:red;"
+                                                               th:href="@{|/admin/product?code=${prodInfo.code}|}">Edit Product</a>
+                                                        </li>
+                                                    </th:block>
+                                                </ul>-->
+                    </td>
+                </tr>
+                <tr>
+                    <td>Name: </td>
+                    <td><span th:utext="${prodInfo.name}"></span></td>
+                </tr>
+                <tr>
+                    <td>Price: </td>
+                    <td><span th:utext="${#numbers.formatDecimal(prodInfo.price,3,2,'COMMA')}"></span></td>
+                </tr>
+                <tr>
+                    <td>Description: </td>
+                    <td><p th:utext="${prodInfo.description}"></p></td>
+                </tr>
+                <tr>
+                    <td>Specification: </td>
+                    <td><p th:utext="${prodInfo.specification}"></p></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><a th:href="@{|/buyProduct?code=${prodInfo.code}|}">Buy Now</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <!--For ADMIN edit Product --> 
+                <th:block sec:authorize="hasAuthority('ROLE_ADMIN')">
+                        <a style="color:red;"
+                           th:href="@{|/admin/product?code=${prodInfo.code}|}">Edit Product</a>
+                </th:block>
+                &nbsp;
+                <th:block sec:authorize="hasAuthority('ROLE_ADMIN')">
+                        <a style="color:red;"
+                           th:href="@{|/admin/productDelete?code=${prodInfo.code}|}">Delete Product</a>
+                </th:block></td>
+                </tr>
+            </table>
+        </div>
+        <br/>
+        <a th:href="@{/productList}">Show Product List</a>
+    </center>
+    <th:block th:include="/_footer"></th:block>
+
+</body>
+</html>
